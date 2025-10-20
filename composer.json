@@ -1,0 +1,19 @@
+{
+    "name": "breno/site",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            
+        }
+    },
+    "authors": [
+        {
+            "name": "Breno Antonio",
+            "email": "brenoia776@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "bramus/router": "~1.6"
+    }
+}
