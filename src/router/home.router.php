@@ -1,27 +1,20 @@
 <?php
-use Controller\TemplateRender;
-
 $router->mount('', function() use($router) {
-   $router->get('/', function(){
-      TemplateRender::run()->renderMake('pages::home', [
-         "title" => "Página Inicial",
-         "nome_usuario" => "Breno"
-      ]);
-   });
+   $router->setNamespace('\Services');
+   $router->get('/', 'PageServices@getHome');
 });
 
 $router->mount('/login', function() use($router){
-   $router->get('/', function(){
-      TemplateRender::run()->renderMake('pages::login');
-   });
+   $router->setNamespace('\Services');
+   $router->get('/', 'PageServices@getLogin');
 
-   $router->post('/auth', function(){
-      echo var_dump($_POST);
-   });
+   $router->post('/auth', 'PageServices@postAutentication');
 });
 
 $router->mount('/about', function() use($router){
-   $router->get('/', function(){
-      TemplateRender::run()->renderMake('pages::sobre_nos');
-   });
+   $router->get('/', 'PageServices@getAbout');
+});
+
+$router->mount('/produtos', function() use($router){
+   $router->get('/', 'PageServices@getProdutos');
 });
